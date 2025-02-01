@@ -72,7 +72,10 @@ func validePod(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
 	w.Header().Set("Content-Type", "application/json")
-	w.Write(resp)
+	_, err = w.Write(resp)
+	if err != nil {
+		log.Printf("error could not write response:  %v\n", err)
+	}
 }
 
 func main() {
