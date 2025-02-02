@@ -1,3 +1,7 @@
 .idea
 go.mod
 go.sum
+.env
+certs
+.crt
+.key

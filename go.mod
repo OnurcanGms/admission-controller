@@ -3,6 +3,7 @@ module admissionController
 go 1.23.4
 
 require (
+	github.com/joho/godotenv v1.5.1
 	k8s.io/api v0.32.1
 	k8s.io/apimachinery v0.32.1
 )

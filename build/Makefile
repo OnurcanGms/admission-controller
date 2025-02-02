@@ -20,6 +20,9 @@ apply:
 	kubectl apply -f admissionSecret.yaml
 	kubectl apply -f admission-service.yaml
 	kubectl apply -f admission-webhook.yaml
+#for kind cluster users upload image to cluster
+upload:
+	kind load docker-image myregistry/admission-webhook:v1
 #Apply test resource
 test:
 	kubectl apply -f test.yaml
