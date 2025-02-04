@@ -9,7 +9,7 @@ clean:
 	kubectl delete -f ./admission-service.yaml  --ignore-not-found=true
 	kubectl delete -f ./admission-webhook.yaml  --ignore-not-found=true
 #Clean and apply Kubernetes resources
-deploy: build clean
+deploy: upload clean
 	kubectl apply -f admissionDeploy.yaml
 	kubectl apply -f admissionSecret.yaml
 	kubectl apply -f admission-service.yaml
@@ -21,7 +21,7 @@ apply:
 	kubectl apply -f admission-service.yaml
 	kubectl apply -f admission-webhook.yaml
 #for kind cluster users upload image to cluster
-upload:
+upload: build
 	kind load docker-image myregistry/admission-webhook:v1
 #Apply test resource
 test:
